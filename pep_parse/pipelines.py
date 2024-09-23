@@ -8,7 +8,7 @@ from pep_parse.constants import BASE_DIR, UtilityConstants
 class PepParsePipeline:
 
     def __init__(self):
-        self.result = None
+        self.result = None  # def open_spider требуют тесты
         self.results_dir = BASE_DIR / UtilityConstants.RESULTS_DIR
         self.results_dir.mkdir(exist_ok=True)
 
