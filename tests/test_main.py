@@ -1,9 +1,8 @@
 import re
 
 import pytest
-from scrapy.crawler import CrawlerProcess
-
 from pep_parse import pipelines
+from scrapy.crawler import CrawlerProcess
 
 try:
     from pep_parse.spiders.pep import PepSpider
