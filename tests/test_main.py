@@ -1,3 +1,4 @@
+import os
 import re
 
 import pytest
@@ -15,6 +16,8 @@ except ModuleNotFoundError:
 
 def test_run_scrapy(monkeypatch, temp_dir):
     mock_base_dir = temp_dir
+    tmp_dir = os.path.join('tests', '_tmp')
+    os.makedirs(tmp_dir, exist_ok=True)
     monkeypatch.setattr(pipelines, 'BASE_DIR', mock_base_dir)
 
     process = CrawlerProcess(settings={
