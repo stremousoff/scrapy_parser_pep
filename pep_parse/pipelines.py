@@ -17,18 +17,19 @@ class PepParsePipeline:
         self.result = defaultdict(int)
 
     def open_spider(self, spider):
-        self.results_dir = BASE_DIR / UtilityConstants.RESULTS_DIR
-        self.results_dir.mkdir(exist_ok=True)
+        pass
 
     def process_item(self, item, spider):
         self.result[item['status']] += 1
         return item
 
     def close_spider(self, spider):
+        self.results_dir = BASE_DIR / UtilityConstants.RESULTS_DIR
+        self.results_dir.mkdir(exist_ok=True)
         with open(
                 self.results_dir / '{}{}.csv'.format(
                     UtilityConstants.FILE_NAME,
-                    datetime.today().strftime(UtilityConstants.DATE_FORMAT)
+                    datetime.now().strftime(UtilityConstants.DATE_FORMAT)
                 ),
                 'w',
                 encoding='utf-8'
