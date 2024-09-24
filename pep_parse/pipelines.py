@@ -16,7 +16,8 @@ class PepParsePipeline:
     def __init__(self):
         self.result = defaultdict(int)
 
-    def open_spider(self, spider):
+    def open_spider(self, spider):  # строки 13 и 14 здесь разместить тоже
+        # тоже нельзя, валятся тесты на платформе
         pass
 
     def process_item(self, item, spider):
@@ -24,6 +25,8 @@ class PepParsePipeline:
         return item
 
     def close_spider(self, spider):
+        # строки 30-31 - только так тесты проходят на платформе, на локалке всё
+        # работает и с __init__ что закоменчен
         self.results_dir = BASE_DIR / UtilityConstants.RESULTS_DIR
         self.results_dir.mkdir(exist_ok=True)
         with open(
