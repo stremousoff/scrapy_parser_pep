@@ -7,13 +7,16 @@ from pep_parse.constants import BASE_DIR, UtilityConstants
 
 class PepParsePipeline:
 
-    def __init__(self):
-        self.result = None  # def open_spider требуют тесты
-        self.results_dir = BASE_DIR / UtilityConstants.RESULTS_DIR
-        self.results_dir.mkdir(exist_ok=True)
+    # я был за этот вариант, но тесты свели меня с ума, что то не то с __init__
+    # def __init__(self):
+    #     self.result = defaultdict(int)
+    #     self.results_dir = BASE_DIR / UtilityConstants.RESULTS_DIR
+    #     self.results_dir.mkdir(exist_ok=True)
 
     def open_spider(self, spider):
         self.result = defaultdict(int)
+        self.results_dir = BASE_DIR / UtilityConstants.RESULTS_DIR
+        self.results_dir.mkdir(exist_ok=True)
 
     def process_item(self, item, spider):
         self.result[item['status']] += 1
