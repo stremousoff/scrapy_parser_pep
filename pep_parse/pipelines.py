@@ -20,11 +20,14 @@ class PepParsePipeline:
         return item
 
     def close_spider(self, spider):
-        file_name = '{}{}.csv'.format(
-            UtilityConstants.FILE_NAME,
-            datetime.today().strftime(UtilityConstants.DATE_FORMAT)
-        )
-        with open(self.results_dir / file_name, 'w', encoding='utf-8') as file:
+        with open(
+                self.results_dir / '{}{}.csv'.format(
+                    UtilityConstants.FILE_NAME,
+                    datetime.today().strftime(UtilityConstants.DATE_FORMAT)
+                ),
+                'w',
+                encoding='utf-8'
+        ) as file:
             csv.writer(file, dialect=csv.excel, lineterminator='\n').writerows(
                 (
                     ('Status', 'Quantity'),
