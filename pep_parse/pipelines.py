@@ -13,8 +13,10 @@ class PepParsePipeline:
     #     self.results_dir = BASE_DIR / UtilityConstants.RESULTS_DIR
     #     self.results_dir.mkdir(exist_ok=True)
 
-    def open_spider(self, spider):
+    def __init__(self):
         self.result = defaultdict(int)
+
+    def open_spider(self, spider):
         self.results_dir = BASE_DIR / UtilityConstants.RESULTS_DIR
         self.results_dir.mkdir(exist_ok=True)
 
