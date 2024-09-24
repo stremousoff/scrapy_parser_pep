@@ -4,7 +4,7 @@ BASE_DIR = Path(__file__).parent.parent
 
 
 class UtilityConstants:
-    RESULTS_DIR = 'results/'
+    RESULTS_DIR = 'results'
     NAME = 'pep'
     ALLOWED_DOMAINS = ['peps.python.org']
     START_URLS = ['https://peps.python.org/']
