@@ -7,11 +7,9 @@ from pep_parse.settings import DATE_FORMAT, FILE_NAME
 
 
 class PepParsePipeline:
-    def __init__(self):
+    def open_spider(self, spider):
         self.results_dir = BASE_DIR / UtilityConstants.RESULTS_DIR
         self.results_dir.mkdir(exist_ok=True)
-
-    def open_spider(self, spider):
         self.result = defaultdict(int)
 
     def process_item(self, item, spider):
