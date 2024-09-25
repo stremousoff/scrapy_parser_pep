@@ -6,11 +6,6 @@ from pep_parse.settings import BASE_DIR, DATE_FORMAT, FILE_NAME, RESULTS_DIR
 
 
 class PepParsePipeline:
-    @classmethod
-    def from_crawler(cls, crawler):
-        (BASE_DIR / RESULTS_DIR).mkdir(exist_ok=True)
-        return cls()
-
     def open_spider(self, spider):
         self.result = defaultdict(int)
 
