@@ -17,11 +17,13 @@ class PepParsePipeline:
         return item
 
     def close_spider(self, spider):
+        results_dir = self.results_dir  # костыль для тестов на платформе
+        # яндекса self.results_dir подставить в 26ю строку не дают
         file_name = '{}{}.csv'.format(
             FILE_NAME,
             datetime.now().strftime(DATE_FORMAT)
         )
-        with open(self.results_dir / file_name, 'w', encoding='utf-8') as file:
+        with open(results_dir / file_name, 'w', encoding='utf-8') as file:
             csv.writer(file, dialect=csv.excel, lineterminator='\n').writerows(
                 (
                     ('Status', 'Quantity'),
