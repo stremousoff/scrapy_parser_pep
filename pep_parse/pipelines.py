@@ -2,7 +2,7 @@ import csv
 from collections import defaultdict
 from datetime import datetime
 
-from pep_parse.constants import BASE_DIR, UtilityConstants
+from pep_parse.settings import BASE_DIR, UtilityConstants
 from pep_parse.settings import DATE_FORMAT, FILE_NAME
 
 
@@ -16,7 +16,6 @@ class PepParsePipeline:
 
     def close_spider(self, spider):
         results_dir = BASE_DIR / UtilityConstants.RESULTS_DIR
-        results_dir.mkdir(exist_ok=True)
         file_name = '{}{}.csv'.format(
             FILE_NAME,
             datetime.now().strftime(DATE_FORMAT)
