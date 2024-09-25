@@ -26,6 +26,6 @@ ITEM_PIPELINES = {
 }
 
 DATE_FORMAT = '%Y-%m-%d_%H-%M-%S'
-FILE_NAME = 'status_summary_'
+FILE_NAME = 'status_summary'
 
 BASE_DIR = Path(__file__).parent.parent
