@@ -2,8 +2,8 @@ import re
 
 import scrapy
 
-from pep_parse.settings import UtilityConstants
 from pep_parse.items import PepParseItem
+from pep_parse.settings import UtilityConstants
 
 
 class PepSpider(scrapy.Spider):
