@@ -17,8 +17,9 @@ class PepParsePipeline:
         return item
 
     def close_spider(self, spider):
-        results_dir = self.results_dir  # костыль для тестов на платформе
-        # яндекса self.results_dir подставить в 26ю строку не дают
+        results_dir = BASE_DIR / UtilityConstants.RESULTS_DIR  # костыль для
+        # тестов на платформе яндекса self.results_dir подставить в 27ю
+        # строку не дают
         file_name = '{}{}.csv'.format(
             FILE_NAME,
             datetime.now().strftime(DATE_FORMAT)
