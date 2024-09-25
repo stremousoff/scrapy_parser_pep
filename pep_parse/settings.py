@@ -7,16 +7,14 @@ NEWSPIDER_MODULE = SPIDER_MODULES
 
 ROBOTSTXT_OBEY = True
 
-
-class UtilityConstants:
-    RESULTS_DIR = 'results'
-    NAME = 'pep'
-    ALLOWED_DOMAINS = ['peps.python.org']
-    START_URLS = [f'https://{domain}/' for domain in ALLOWED_DOMAINS]
+RESULTS_DIR = 'results'
+NAME = 'pep'
+ALLOWED_DOMAINS = ['peps.python.org']
+START_URLS = [f'https://{domain}/' for domain in ALLOWED_DOMAINS]
 
 
 FEEDS = {
-    f'{UtilityConstants.RESULTS_DIR}/pep_%(time)s.csv': {
+    f'{RESULTS_DIR}/pep_%(time)s.csv': {
         'format': 'csv',
         'fields': ['number', 'name', 'status'],
         'overwrite': True

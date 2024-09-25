@@ -3,13 +3,13 @@ import re
 import scrapy
 
 from pep_parse.items import PepParseItem
-from pep_parse.settings import UtilityConstants
+from pep_parse.settings import ALLOWED_DOMAINS, NAME, START_URLS
 
 
 class PepSpider(scrapy.Spider):
-    name = UtilityConstants.NAME
-    allowed_domains = UtilityConstants.ALLOWED_DOMAINS
-    start_urls = UtilityConstants.START_URLS
+    name = NAME
+    allowed_domains = ALLOWED_DOMAINS
+    start_urls = START_URLS
 
     def parse(self, response, **kwargs):
         for url in response.css('section#numerical-index a::attr(href)'):
