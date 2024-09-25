@@ -6,6 +6,11 @@ from pep_parse.settings import BASE_DIR, DATE_FORMAT, FILE_NAME, RESULTS_DIR
 
 
 class PepParsePipeline:
+
+    def __init__(self):
+        self.results_dir = BASE_DIR / RESULTS_DIR
+        self.results_dir.mkdir(exist_ok=True)
+
     def open_spider(self, spider):
         self.result = defaultdict(int)
 
@@ -15,7 +20,7 @@ class PepParsePipeline:
 
     def close_spider(self, spider):
         with open(
-                BASE_DIR / RESULTS_DIR / '{name}_{date}.csv'.format(
+                self.results_dir / '{name}_{date}.csv'.format(
                     name=FILE_NAME, date=datetime.now().strftime(DATE_FORMAT)
                 ),
                 'w',
