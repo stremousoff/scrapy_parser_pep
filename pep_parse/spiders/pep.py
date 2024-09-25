@@ -17,12 +17,12 @@ class PepSpider(scrapy.Spider):
 
     @staticmethod
     def parse_pep(response):
-        match = re.search(
+        number, name = re.search(
             r'^PEP\s+(\d+)\s*–\s*(.*)',
             response.css('h1.page-title::text').get()
-        )
+        ).group()
         yield PepParseItem(
-            number=match.group(1),
-            name=match.group(2),
+            number=number,
+            name=name,
             status=response.css('dt:contains("Status") + dd abbr::text').get(),
         )
