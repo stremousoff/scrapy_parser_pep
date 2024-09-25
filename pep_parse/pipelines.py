@@ -11,7 +11,6 @@ class PepParsePipeline:
         (BASE_DIR / RESULTS_DIR).mkdir(exist_ok=True)
         return cls()
 
-
     def open_spider(self, spider):
         self.result = defaultdict(int)
 
